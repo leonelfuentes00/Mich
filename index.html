@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michelle | Heartopia Gallery</title>
+    <meta
+      name="description"
+      content="Una galeria editorial y romantica creada a partir de los recuerdos de Michelle."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-a" aria-hidden="true"></div>
+    <div class="ambient ambient-b" aria-hidden="true"></div>
+    <div class="tulip-field" aria-hidden="true">
+      <span class="tulip tulip-left"></span>
+      <span class="tulip tulip-right"></span>
+      <span class="petal petal-a"></span>
+      <span class="petal petal-b"></span>
+      <span class="petal petal-c"></span>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <main class="page-shell">
+      <section class="hero panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Heartopia Archive</p>
+          <h1>Michelle</h1>
+          <p class="hero-lead">
+            Una galeria pensada como un pequeno universo de recuerdos: luminosa,
+            suave y con una vibra editorial hecha para perderse un rato.
+          </p>
+          <div class="hero-metrics">
+            <div>
+              <span id="metric-total">0</span>
+              <small>momentos</small>
+            </div>
+            <div>
+              <span id="metric-albums">0</span>
+              <small>capitulos</small>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="#memories">Ver recuerdos</a>
+            <button class="button ghost" id="shuffle-button" type="button">
+              Reordenar collage
+            </button>
+          </div>
+          <div class="hero-bloom" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-stack" id="hero-stack" aria-label="Collage destacado"></div>
+          <div class="hero-note">
+            <p>Inspirado por los proyectos existentes del workspace.</p>
+            <strong>Base visual nueva, alma de recuerdo.</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="spotlight panel">
+        <div class="section-heading">
+          <p class="eyebrow">Storyboard</p>
+          <h2>Un recorrido suave para mirar sin prisa</h2>
+        </div>
+        <div class="story-strip" id="story-strip"></div>
+      </section>
+
+      <section class="chapters panel">
+        <div class="section-heading">
+          <p class="eyebrow">Capitulos</p>
+          <h2>La historia organizada por bloques</h2>
+        </div>
+        <div class="albums-grid" id="albums-grid"></div>
+      </section>
+
+      <section class="memory-wall panel" id="memories">
+        <div class="section-heading">
+          <p class="eyebrow">Memory Wall</p>
+          <h2>Todos los recuerdos en una sola marea visual</h2>
+        </div>
+        <div class="wall-toolbar">
+          <p id="wall-caption">Cargando recuerdos...</p>
+          <button class="button ghost compact" id="jump-random" type="button">
+            Abrir una al azar
+          </button>
+        </div>
+        <div class="memory-grid" id="memory-grid"></div>
+      </section>
+    </main>
+
+    <dialog class="lightbox" id="lightbox">
+      <form method="dialog" class="lightbox-dismiss">
+        <button class="lightbox-close" aria-label="Cerrar visor">Cerrar</button>
+      </form>
+      <div class="lightbox-shell">
+        <button class="lightbox-nav" id="prev-shot" type="button" aria-label="Anterior">
+          &#8249;
+        </button>
+        <figure class="lightbox-figure">
+          <img id="lightbox-image" alt="" />
+          <figcaption>
+            <span id="lightbox-meta"></span>
+            <strong id="lightbox-title"></strong>
+          </figcaption>
+        </figure>
+        <button class="lightbox-nav" id="next-shot" type="button" aria-label="Siguiente">
+          &#8250;
+        </button>
+      </div>
+    </dialog>
+
+    <template id="album-card-template">
+      <article class="album-card">
+        <button class="album-card-button" type="button">
+          <img class="album-card-cover" alt="" loading="lazy" />
+          <span class="album-card-index"></span>
+          <div class="album-card-body">
+            <p class="album-card-kicker"></p>
+            <h3></h3>
+            <span class="album-card-count"></span>
+          </div>
+        </button>
+      </article>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
