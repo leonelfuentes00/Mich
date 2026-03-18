@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Michelle | Heartopia Gallery</title>
+    <title>Michelle | Libro de Recuerdos</title>
     <meta
       name="description"
-      content="Una galeria editorial y romantica creada a partir de los recuerdos de Michelle."
+      content="Un libro interactivo de recuerdos para Michelle, con capitulos, transiciones y una atmosfera romantica."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,76 +28,275 @@
     </div>
     <div class="grain" aria-hidden="true"></div>
 
-    <main class="page-shell">
-      <section class="hero panel">
-        <div class="hero-copy">
-          <p class="eyebrow">Heartopia Archive</p>
-          <h1>Michelle</h1>
-          <p class="hero-lead">
-            Una galeria pensada como un pequeno universo de recuerdos: luminosa,
-            suave y con una vibra editorial hecha para perderse un rato.
+    <main class="book-stage">
+      <button class="book-cover" id="book-cover" type="button" aria-expanded="false">
+        <span class="book-cover-spine">Michelle</span>
+        <div class="book-cover-inner">
+          <p class="book-cover-kicker">Edicion privada</p>
+          <h1>Michelle<br />Libro de recuerdos</h1>
+          <p class="book-cover-copy">
+            Un volumen hecho para mirar sin apuro, como esos libros que guardan
+            luz, estaciones y escenas pequenas entre una hoja y la siguiente.
           </p>
-          <div class="hero-metrics">
-            <div>
-              <span id="metric-total">0</span>
-              <small>momentos</small>
+          <div class="book-cover-meta">
+            <span>Primavera</span>
+            <span id="book-generated-at">Archivo reunido a mano</span>
+          </div>
+          <figure class="book-cover-art">
+            <img
+              src="./assets/atmosphere/tulip-dark-red.jpg"
+              alt="Tulipan rojo intenso sobre fondo oscuro"
+              loading="lazy"
+            />
+          </figure>
+          <span class="book-cover-hint">Abrir el libro</span>
+        </div>
+      </button>
+
+      <div class="book-frame">
+        <section class="book-shell" id="book-shell" aria-hidden="true">
+          <header class="book-header">
+            <div class="book-header-copy">
+              <span class="book-header-kicker">Libro de recuerdos</span>
+              <div class="book-header-row">
+                <strong id="book-page-title">Invocacion</strong>
+                <span id="book-page-index">01</span>
+              </div>
+              <p id="book-page-summary">
+                La primera pagina abre el tono del libro y deja entrar la luz del
+                paseo.
+              </p>
             </div>
-            <div>
-              <span id="metric-albums">0</span>
-              <small>capitulos</small>
+            <div class="book-header-actions">
+              <button class="button ghost compact" id="book-prev" type="button">Anterior</button>
+              <button class="button primary compact" id="book-next" type="button">Siguiente</button>
             </div>
-          </div>
-          <div class="hero-actions">
-            <a class="button primary" href="#memories">Ver recuerdos</a>
-            <button class="button ghost" id="shuffle-button" type="button">
-              Reordenar collage
-            </button>
-          </div>
-          <div class="hero-bloom" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
+          </header>
 
-        <div class="hero-visual">
-          <div class="hero-stack" id="hero-stack" aria-label="Collage destacado"></div>
-          <div class="hero-note">
-            <p>Inspirado por los proyectos existentes del workspace.</p>
-            <strong>Base visual nueva, alma de recuerdo.</strong>
+          <div class="book-body">
+            <div class="book-gutter" aria-hidden="true"></div>
+            <div class="book-turn" id="book-turn" aria-hidden="true">
+              <span class="book-turn-face"></span>
+              <span class="book-turn-shadow"></span>
+            </div>
+
+            <section class="book-page is-active" id="page-invocacion" data-page="invocacion">
+              <div class="spread-grid spread-grid-cover">
+                <article class="paper-sheet paper-sheet-title">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Portadilla</span>
+                    <span class="sheet-folio">001</span>
+                  </div>
+                  <div class="sheet-body">
+                    <p class="eyebrow">Invocacion</p>
+                    <h2>Michelle</h2>
+                    <p class="page-lead">
+                      Este libro no intenta explicarlo todo. Solo dejar abiertas
+                      algunas escenas queridas para volver a ellas con calma.
+                    </p>
+                    <p class="drop-paragraph">
+                      Entre tulipanes oscuros, luz tibia, bosque y cine, estas
+                      paginas quieren sentirse tocables: menos pantalla, mas
+                      recuerdo impreso.
+                    </p>
+                    <div class="page-tags">
+                      <span>Abrazo</span>
+                      <span>Luz tibia</span>
+                      <span>Bosque</span>
+                      <span>Escenas guardadas</span>
+                    </div>
+                    <div class="page-actions">
+                      <button class="button primary" id="open-next-page" type="button">
+                        Pasar pagina
+                      </button>
+                    </div>
+                  </div>
+                  <footer class="sheet-foot">
+                    <div class="page-note">
+                      <p>Nota de apertura</p>
+                      <strong>Una primera hoja para entrar despacio y dejar que el tono haga su trabajo.</strong>
+                    </div>
+                  </footer>
+                </article>
+
+                <article class="paper-sheet paper-sheet-gallery">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Lamina de apertura</span>
+                    <span class="sheet-folio">002</span>
+                  </div>
+                  <div class="sheet-body">
+                    <div class="page-visual">
+                      <div class="hero-stack" id="hero-stack" aria-label="Collage destacado"></div>
+                    </div>
+                    <div class="marginalia-card">
+                      <p>Margen</p>
+                      <strong>Las primeras imagenes funcionan como la respiracion inicial del libro.</strong>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-latidos" data-page="latidos">
+              <div class="spread-grid">
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Capitulo I</span>
+                    <span class="sheet-folio">003</span>
+                  </div>
+                  <div class="sheet-body prose-sheet">
+                    <p class="eyebrow">Latidos</p>
+                    <h2>Un recorrido suave para mirar sin prisa</h2>
+                    <p class="section-lead">
+                      Pequenas estaciones para sentir el pulso del paseo, una
+                      escena despues de la otra, como si cada hoja afinara la
+                      siguiente.
+                    </p>
+                    <p class="drop-paragraph">
+                      Las mejores paginas de un libro no gritan: acomodan el ojo,
+                      invitan a detenerse y dejan que una imagen haga eco en la
+                      otra. Esta parte busca exactamente eso.
+                    </p>
+                    <blockquote class="pull-quote">
+                      “Cambiar de pagina deberia sentirse como cambiar de luz.”
+                    </blockquote>
+                  </div>
+                </article>
+
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Secuencia</span>
+                    <span class="sheet-folio">004</span>
+                  </div>
+                  <div class="sheet-body">
+                    <div class="story-strip" id="story-strip"></div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-herbario" data-page="herbario">
+              <div class="spread-grid spread-grid-atmosphere">
+                <article class="paper-sheet paper-sheet-art">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Interludio</span>
+                    <span class="sheet-folio">005</span>
+                  </div>
+                  <div class="sheet-body">
+                    <figure class="chapter-art">
+                      <img
+                        src="./assets/atmosphere/tulip-dark-red.jpg"
+                        alt="Tulipan rojo intenso sobre fondo oscuro"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                  <footer class="sheet-foot">
+                    <p class="figure-caption">Tulipan oscuro. Una hoja para dejar respirar la secuencia.</p>
+                  </footer>
+                </article>
+
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Herbario</span>
+                    <span class="sheet-folio">006</span>
+                  </div>
+                  <div class="sheet-body prose-sheet">
+                    <p class="eyebrow">Herbario</p>
+                    <h2>Un interludio de bosque y tulipanes</h2>
+                    <p class="section-lead">
+                      Esta hoja funciona como un respiro entre capitulos: una
+                      pausa tibia, un poco editorial, para que el libro se sienta
+                      unido y no solo dividido en bloques.
+                    </p>
+                    <div class="page-tags">
+                      <span>Claros de bosque</span>
+                      <span>Rojo profundo</span>
+                      <span>Calma</span>
+                      <span>Luz suave</span>
+                    </div>
+                    <div class="page-note page-note-wide">
+                      <p>Nota al margen</p>
+                      <strong>
+                        Una buena doble pagina cambia el aire de la lectura sin
+                        romper su continuidad.
+                      </strong>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-constelacion" data-page="constelacion">
+              <div class="spread-grid">
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Indice</span>
+                    <span class="sheet-folio">007</span>
+                  </div>
+                  <div class="sheet-body prose-sheet">
+                    <p class="eyebrow">Constelacion</p>
+                    <h2>La historia organizada por capitulos</h2>
+                    <p class="section-lead">
+                      Aqui el libro se vuelve consultable: cada bloque queda
+                      alineado como si fuera un indice vivo, listo para volver a
+                      una escena concreta sin perder el tono.
+                    </p>
+                    <div class="toc-preview" id="toc-preview"></div>
+                  </div>
+                </article>
+
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Capitulos</span>
+                    <span class="sheet-folio">008</span>
+                  </div>
+                  <div class="sheet-body">
+                    <div class="albums-grid" id="albums-grid"></div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-archivo" data-page="archivo">
+              <div class="spread-grid spread-grid-archive">
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Archivo</span>
+                    <span class="sheet-folio">009</span>
+                  </div>
+                  <div class="sheet-body prose-sheet">
+                    <p class="eyebrow">Archivo</p>
+                    <h2>Una hoja final para hojearlo entero</h2>
+                    <p class="section-lead">
+                      La ultima parte deja de narrar y empieza a catalogar. El
+                      libro se abre por completo para que cada recuerdo pueda
+                      localizarse de un vistazo.
+                    </p>
+                    <div class="archive-stats" id="archive-stats"></div>
+                    <div class="page-note">
+                      <p>Colofon</p>
+                      <strong>Hecho con imagenes reales, papel imaginado y una insistencia suave en que el recuerdo tambien se diseña.</strong>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Plancha de contacto</span>
+                    <span class="sheet-folio">010</span>
+                  </div>
+                  <div class="sheet-body">
+                    <div class="memory-grid" id="memory-grid"></div>
+                  </div>
+                </article>
+              </div>
+            </section>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="spotlight panel">
-        <div class="section-heading">
-          <p class="eyebrow">Storyboard</p>
-          <h2>Un recorrido suave para mirar sin prisa</h2>
-        </div>
-        <div class="story-strip" id="story-strip"></div>
-      </section>
-
-      <section class="chapters panel">
-        <div class="section-heading">
-          <p class="eyebrow">Capitulos</p>
-          <h2>La historia organizada por bloques</h2>
-        </div>
-        <div class="albums-grid" id="albums-grid"></div>
-      </section>
-
-      <section class="memory-wall panel" id="memories">
-        <div class="section-heading">
-          <p class="eyebrow">Memory Wall</p>
-          <h2>Todos los recuerdos en una sola marea visual</h2>
-        </div>
-        <div class="wall-toolbar">
-          <p id="wall-caption">Cargando recuerdos...</p>
-          <button class="button ghost compact" id="jump-random" type="button">
-            Abrir una al azar
-          </button>
-        </div>
-        <div class="memory-grid" id="memory-grid"></div>
-      </section>
+        <nav class="book-bookmarks" id="book-tabs" aria-label="Capitulos del libro"></nav>
+      </div>
     </main>
 
     <dialog class="lightbox" id="lightbox">
