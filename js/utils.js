@@ -57,11 +57,3 @@ export function tulipTone(index) {
 export function normalizeIndex(index, length) {
   return (index + length) % length;
 }
-
-export function sanitizeTitle(title) {
-  return title
-    .replace(/Â·/g, "·")
-    .replace(/[^ -~·]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}

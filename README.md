@@ -6,8 +6,9 @@ Galeria estatica y creativa construida en `E:\Coding\Personal\Mich`, pensada par
 
 - Base tecnica nueva y liviana para no depender de Node para la app.
 - Inspiracion tomada de `Love-1` para la idea de collage/slideshow y de `valentine` para el tono romantico general.
-- Direccion visual con detalles de tulipanes rojo-negro, transiciones suaves y lightbox editorial.
+- Direccion visual con detalles de tulipanes rojo-negro, atmosfera de bosque suave, transiciones cuidadas y lightbox editorial.
 - Catalogo desacoplado: las fotos reales se convierten en `assets/photos/albums/...` y el sitio consume `data/gallery-data.json`.
+- Navegacion tipo libro con capitulos, foco mejorado por teclado y estado visible si falla la carga del catalogo.
 
 ## Regenerar assets y catalogo
 
@@ -32,8 +33,9 @@ Luego abre `http://localhost:4173`.
 ## Estructura
 
 - `index.html`: shell principal.
-- `styles.css`: sistema visual completo.
-- `app.js`: carga de datos, render y lightbox.
+- `styles.css`: sistema visual completo del libro, fondos y componentes.
+- `app.js`: arranque principal, carga de datos y controles globales.
+- `js/`: controladores, renderers, estado y utilidades separadas por responsabilidad.
 - `scripts/build-gallery-data.ps1`: pipeline local de assets.
 - `scripts/serve-gallery.ps1`: servidor estatico local sin dependencias externas.
 - `data/gallery-data.json`: catalogo generado.

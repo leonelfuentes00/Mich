@@ -29,14 +29,19 @@
     <div class="grain" aria-hidden="true"></div>
 
     <main class="book-stage">
+      <p class="book-error" id="book-error" role="alert" hidden>
+        No pude cargar el archivo de recuerdos. Vuelve a generar `gallery-data.json`
+        o abre la galeria con el servidor local.
+      </p>
+
       <button class="book-cover" id="book-cover" type="button" aria-expanded="false">
         <span class="book-cover-spine">Michelle</span>
         <div class="book-cover-inner">
           <p class="book-cover-kicker">Edicion privada</p>
           <h1>Michelle<br />Libro de recuerdos</h1>
           <p class="book-cover-copy">
-            Un volumen hecho para mirar sin apuro, como esos libros que guardan
-            luz, estaciones y escenas pequenas entre una hoja y la siguiente.
+            Un libro para volver sin prisa a lo que importa: la luz de algunos
+            dias, la ternura de ciertos gestos y la calma de tenerlos todavia cerca.
           </p>
           <div class="book-cover-meta">
             <span>Primavera</span>
@@ -54,7 +59,7 @@
       </button>
 
       <div class="book-frame">
-        <section class="book-shell" id="book-shell" aria-hidden="true">
+        <section class="book-shell" id="book-shell" aria-hidden="true" tabindex="-1">
           <header class="book-header">
             <div class="book-header-copy">
               <span class="book-header-kicker">Libro de recuerdos</span>
@@ -91,8 +96,8 @@
                     <p class="eyebrow">Invocacion</p>
                     <h2>Michelle</h2>
                     <p class="page-lead">
-                      Este libro no intenta explicarlo todo. Solo dejar abiertas
-                      algunas escenas queridas para volver a ellas con calma.
+                      Este libro no busca explicarlo todo. Solo guardar algunas
+                      escenas queridas para volver a ellas cuando haga falta.
                     </p>
                     <p class="drop-paragraph">
                       Entre tulipanes oscuros, luz tibia, bosque y cine, estas
@@ -130,7 +135,7 @@
                     </div>
                     <div class="marginalia-card">
                       <p>Margen</p>
-                      <strong>Las primeras imagenes funcionan como la respiracion inicial del libro.</strong>
+                      <strong>Las primeras imagenes abren el pulso del libro y marcan la manera de mirarlo.</strong>
                     </div>
                   </div>
                 </article>
@@ -158,7 +163,7 @@
                       otra. Esta parte busca exactamente eso.
                     </p>
                     <blockquote class="pull-quote">
-                      “Cambiar de pagina deberia sentirse como cambiar de luz.”
+                      "Cambiar de pagina deberia sentirse como cambiar de luz."
                     </blockquote>
                   </div>
                 </article>
@@ -184,15 +189,22 @@
                   </div>
                   <div class="sheet-body">
                     <figure class="chapter-art">
-                      <img
-                        src="./assets/atmosphere/tulip-dark-red.jpg"
-                        alt="Tulipan rojo intenso sobre fondo oscuro"
-                        loading="lazy"
-                      />
+                      <video
+                        class="chapter-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                        poster="./assets/atmosphere/forest-sunlight-poster.jpg"
+                        aria-label="Bosque con luz suave y atmosfera calida"
+                      >
+                        <source src="./assets/atmosphere/forest-sunlight.mp4" type="video/mp4" />
+                      </video>
                     </figure>
                   </div>
                   <footer class="sheet-foot">
-                    <p class="figure-caption">Tulipan oscuro. Una hoja para dejar respirar la secuencia.</p>
+                    <p class="figure-caption">Bosque en calma. Una pausa para que la memoria baje la voz y respire.</p>
                   </footer>
                 </article>
 
@@ -276,7 +288,7 @@
                     <div class="archive-stats" id="archive-stats"></div>
                     <div class="page-note">
                       <p>Colofon</p>
-                      <strong>Hecho con imagenes reales, papel imaginado y una insistencia suave en que el recuerdo tambien se diseña.</strong>
+                      <strong>Hecho con imagenes reales, papel imaginado y la idea sencilla de que recordar tambien es una forma de cuidar.</strong>
                     </div>
                   </div>
                 </article>

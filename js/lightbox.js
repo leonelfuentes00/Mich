@@ -1,4 +1,4 @@
-import { normalizeIndex, sanitizeTitle } from "./utils.js";
+import { normalizeIndex } from "./utils.js";
 
 export function createLightboxController({ elements, state }) {
   function open(index) {
@@ -8,7 +8,7 @@ export function createLightboxController({ elements, state }) {
     elements.lightboxImage.src = image.src;
     elements.lightboxImage.alt = image.alt;
     elements.lightboxMeta.textContent = `${image.chapterLabel} - Foto ${String(image.photoNumber).padStart(2, "0")}`;
-    elements.lightboxTitle.textContent = sanitizeTitle(image.title);
+    elements.lightboxTitle.textContent = image.title;
 
     if (!elements.lightbox.open) {
       elements.lightbox.showModal();
@@ -41,6 +41,10 @@ export function createLightboxController({ elements, state }) {
       if (!inside) {
         elements.lightbox.close();
       }
+    });
+
+    elements.lightbox.addEventListener("cancel", () => {
+      elements.lightbox.close();
     });
   }
 

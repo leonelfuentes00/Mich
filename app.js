@@ -19,6 +19,10 @@ async function init() {
   try {
     const urlParams = new URLSearchParams(window.location.search);
     const response = await fetch(dataUrl);
+    if (!response.ok) {
+      throw new Error(`No se pudo cargar ${dataUrl}: ${response.status}`);
+    }
+
     const gallery = await response.json();
 
     hydrateGalleryIndex(state, gallery);
@@ -37,6 +41,9 @@ async function init() {
     applyPreviewState(book, urlParams);
     bindControls(book, lightbox);
   } catch (error) {
+    elements.bookError.hidden = false;
+    elements.bookCover.disabled = true;
+    elements.bookCover.setAttribute("aria-disabled", "true");
     console.error(error);
   }
 }
@@ -69,6 +76,11 @@ function bindControls(book, lightbox) {
     }
 
     if (!elements.lightbox.open) {
+      return;
+    }
+
+    if (event.key === "Escape") {
+      elements.lightbox.close();
       return;
     }
 

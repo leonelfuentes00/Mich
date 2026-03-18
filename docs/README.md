@@ -4,7 +4,7 @@ Esta carpeta guarda notas de trabajo para el album/regalo.
 
 ## Objetivo
 
-El proyecto evoluciono desde una galeria estatica hacia una experiencia mas emocional, interactiva y cinematica, con una intro calida, tonos forestales y una navegacion visual mas viva.
+El proyecto evoluciono desde una galeria estatica hacia una experiencia tipo libro, mas emocional y editorial, con una portada calida, interludios atmosfericos y una navegacion visual mas clara.
 
 ## Lo Que Se Hizo
 
@@ -18,14 +18,15 @@ El proyecto evoluciono desde una galeria estatica hacia una experiencia mas emoc
 ### 2. Direccion Visual
 
 - Se reforzo la atmosfera con tulipanes oscuros, fondos calidos y acentos verdes.
-- Se sumaron detalles editoriales y de reveal para que la galeria se sintiera mas como un paseo.
-- Se integraron assets atmosfericos en `assets/atmosphere/`.
+- Se sumaron detalles editoriales para que la galeria se sintiera mas como un paseo impreso.
+- Se integraron assets atmosfericos en `assets/atmosphere/`, incluyendo una escena de bosque usada dentro del libro.
 
 ### 3. Interaccion
 
 - Se mantuvo una intro con CTA para entrar.
-- Se agregaron estados de mood que cambian frases y temperatura visual.
+- Se dejaron cambios de tono por capitulo a traves de `data-book-tone`.
 - Se dejo el lightbox navegable con teclado y controles.
+- Se mejoro el flujo de foco para teclado y se agrego feedback si falla la carga del catalogo.
 
 ### 4. Responsive
 
@@ -42,19 +43,19 @@ La logica principal ya no vive toda en un solo archivo.
 - `js/dom.js`: referencias DOM
 - `js/state.js`: estado compartido
 - `js/utils.js`: utilidades, transforms y helpers
-- `js/motion.js`: reveals y motion base
 - `js/lightbox.js`: controlador del lightbox
-- `js/renderers.js`: renderizado de intro, hero, secciones y recuerdos
+- `js/book.js`: controlador de apertura, paginas y tabs
+- `js/renderers.js`: renderizado de portada, secciones y recuerdos
 
 ## Pendientes Reales
 
 - Seguir refinando la composicion exacta de la intro en navegador real.
 - Curar mejor que fotos entran al collage inicial para que siempre cuenten mejor la historia.
 - Hacer una pasada final de textos para que todo suene mas intimo y menos general.
-- Limpiar o decidir si se conservan carpetas temporales como `.tmp-screens/`.
+- Definir si conviene comprimir aun mas el video atmosferico para deploy publico.
 
 ## Notas De Trabajo
 
 - Se uso `type="module"` para permitir la modularizacion del frontend sin dependencias extra.
-- Se validaron los archivos JS con `node --check --experimental-default-type=module`.
-- Las capturas de revision se hicieron contra `file:///.../index.html` cuando el servidor local no era confiable.
+- El servidor local recomendado sigue siendo `scripts/serve-gallery.ps1`.
+- Conviene revisar en navegador real las transiciones de apertura del libro y el video atmosferico.

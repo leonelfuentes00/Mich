@@ -1,4 +1,5 @@
 export const elements = {
+  bookError: document.querySelector("#book-error"),
   bookCover: document.querySelector("#book-cover"),
   bookShell: document.querySelector("#book-shell"),
   bookPageTitle: document.querySelector("#book-page-title"),

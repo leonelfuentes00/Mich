@@ -13,6 +13,7 @@ export function createBookController({ elements, state, chapters }) {
         <strong>${chapter.label}</strong>
       `;
       button.setAttribute("aria-label", `Ir a ${chapter.label}`);
+      button.setAttribute("aria-current", "false");
       button.addEventListener("click", () => goToPage(index));
       elements.bookTabs.appendChild(button);
     });
@@ -29,6 +30,9 @@ export function createBookController({ elements, state, chapters }) {
     document.body.classList.add("book-open");
     elements.bookCover.setAttribute("aria-expanded", "true");
     elements.bookShell.setAttribute("aria-hidden", "false");
+    window.requestAnimationFrame(() => {
+      elements.bookShell.focus();
+    });
   }
 
   function setActivePage(index) {
@@ -48,6 +52,7 @@ export function createBookController({ elements, state, chapters }) {
 
     document.querySelectorAll(".book-tab").forEach((tab, tabIndex) => {
       tab.classList.toggle("is-active", tabIndex === state.activePageIndex);
+      tab.setAttribute("aria-current", tabIndex === state.activePageIndex ? "page" : "false");
     });
   }
 
