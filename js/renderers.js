@@ -1,4 +1,4 @@
-import { chapterName, heroShotTransform, sampleAcrossAlbums, tulipTone } from "./utils.js";
+import { chapterName, heroShotTransform, plateTitle, sampleAcrossAlbums, storyWhisper, tulipTone } from "./utils.js";
 
 export function hydrateGalleryIndex(state, gallery) {
   state.allImages = gallery.albums.flatMap((album, albumIndex) =>
@@ -6,6 +6,8 @@ export function hydrateGalleryIndex(state, gallery) {
       ...image,
       albumLabel: album.label,
       chapterLabel: chapterName(albumIndex, album.label),
+      title: plateTitle(chapterName(albumIndex, album.label), image.photoNumber),
+      alt: `${chapterName(albumIndex, album.label)}, lamina ${String(image.photoNumber).padStart(2, "0")}`,
     })),
   );
 }
@@ -48,7 +50,7 @@ export function buildStoryStrip(elements, gallery, openLightboxById) {
       <div class="story-card-copy">
         <span class="story-card-meta">Parada ${String(index + 1).padStart(2, "0")}</span>
         <strong>${image.chapterLabel}</strong>
-        <p>Una escena breve para sostener el ritmo de lectura y dejar que una imagen prepare la siguiente.</p>
+        <p>${storyWhisper(index)}</p>
       </div>
     `;
     card.addEventListener("click", () => openLightboxById(image.id));

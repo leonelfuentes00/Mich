@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Michelle | Libro de Recuerdos</title>
+    <title>Michelle | Herbario de los dias queridos</title>
     <meta
       name="description"
-      content="Un libro interactivo de recuerdos para Michelle, con capitulos, transiciones y una atmosfera romantica."
+      content="Un libro interactivo de recuerdos para Michelle, con atmosfera editorial, tulipanes oscuros y una lectura intimista."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,16 +16,10 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body data-book-state="front-cover">
     <div class="ambient ambient-a" aria-hidden="true"></div>
     <div class="ambient ambient-b" aria-hidden="true"></div>
-    <div class="tulip-field" aria-hidden="true">
-      <span class="tulip tulip-left"></span>
-      <span class="tulip tulip-right"></span>
-      <span class="petal petal-a"></span>
-      <span class="petal petal-b"></span>
-      <span class="petal petal-c"></span>
-    </div>
+    <div class="botanical-pattern" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
 
     <main class="book-stage">
@@ -34,31 +28,69 @@
         o abre la galeria con el servidor local.
       </p>
 
-      <button class="book-cover" id="book-cover" type="button" aria-expanded="false">
-        <span class="book-cover-spine">Michelle</span>
-        <div class="book-cover-inner">
-          <p class="book-cover-kicker">Edicion privada</p>
-          <h1>Michelle<br />Libro de recuerdos</h1>
-          <p class="book-cover-copy">
-            Un libro para volver sin prisa a lo que importa: la luz de algunos
-            dias, la ternura de ciertos gestos y la calma de tenerlos todavia cerca.
-          </p>
-          <div class="book-cover-meta">
-            <span>Primavera</span>
-            <span id="book-generated-at">Archivo reunido a mano</span>
-          </div>
-          <figure class="book-cover-art">
-            <img
-              src="./assets/atmosphere/tulip-dark-red.jpg"
-              alt="Tulipan rojo intenso sobre fondo oscuro"
-              loading="lazy"
-            />
-          </figure>
-          <span class="book-cover-hint">Abrir el libro</span>
-        </div>
-      </button>
-
       <div class="book-frame">
+        <button class="book-cover book-cover-front" id="book-cover-front" type="button" aria-expanded="false">
+          <span class="book-cover-spine">Michelle</span>
+          <div class="book-cover-face">
+            <div class="book-cover-copydeck">
+              <div class="book-cover-topline"></div>
+
+              <div class="book-cover-title-group">
+                <p class="book-cover-suptitle">Herbario de nuestra historia</p>
+                <h1>Te Quie-Tecito</h1>
+                <p class="book-cover-subtitle">Los tulipanes llenan el alma</p>
+              </div>
+
+              <div class="book-cover-detail" aria-hidden="true">
+                <span></span>
+                <p>volumen privado</p>
+                <span></span>
+              </div>
+
+              <p class="book-cover-copy">
+                un pequeno gesto de la luz de ciertos dias, la ternura de algunos
+                gestos y la belleza callada de haberlos vivido junto a ti
+              </p>
+
+              <div class="book-cover-meta">
+                <span>Solo para ti, con amor y carino</span>
+              </div>
+            </div>
+
+            <img
+              class="book-cover-ornament"
+              src="./assets/ornaments/cover-filigree.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+        </button>
+
+        <button class="book-cover book-cover-back" id="book-cover-back" type="button" aria-expanded="false">
+          <div class="book-cover-face book-cover-face-back">
+            <div class="book-cover-portrait">
+              <div class="book-cover-seal" aria-hidden="true">M</div>
+              <figure class="book-cover-art">
+                <img
+                  src="./assets/atmosphere/tulip-dark-red.jpg"
+                  alt="Tulipan rojo intenso sobre fondo oscuro"
+                  loading="lazy"
+                />
+              </figure>
+              <p class="book-cover-quote">
+                "Hay recuerdos que no vuelven como eco, sino como flor, una flor que nace para contar nuestra historia"
+              </p>
+            </div>
+
+            <img
+              class="book-cover-ornament"
+              src="./assets/ornaments/cover-filigree.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+        </button>
+
         <section class="book-shell" id="book-shell" aria-hidden="true" tabindex="-1">
           <header class="book-header">
             <div class="book-header-copy">
@@ -111,9 +143,6 @@
                       <span>Escenas guardadas</span>
                     </div>
                     <div class="page-actions">
-                      <button class="button primary" id="open-next-page" type="button">
-                        Pasar pagina
-                      </button>
                     </div>
                   </div>
                   <footer class="sheet-foot">
@@ -346,6 +375,7 @@
       </article>
     </template>
 
+    <script src="./data/gallery-data.js"></script>
     <script type="module" src="./app.js"></script>
   </body>
 </html>

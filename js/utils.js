@@ -54,6 +54,23 @@ export function tulipTone(index) {
   return tones[index % tones.length];
 }
 
+export function plateTitle(chapterLabel, photoNumber) {
+  return `${chapterLabel} · Lamina ${String(photoNumber).padStart(2, "0")}`;
+}
+
+export function storyWhisper(index) {
+  const lines = [
+    "Una escena breve para entrar en tono sin forzar la emocion.",
+    "Una imagen que deja la siguiente preparada, como una respiracion.",
+    "Una pausa luminosa para que el recuerdo tenga espacio.",
+    "Una pequena estacion donde mirar un poco mas despacio.",
+    "Una lamina para sostener el ritmo suave del recorrido.",
+    "Un gesto quieto, guardado para volver cuando haga falta.",
+  ];
+
+  return lines[index % lines.length];
+}
+
 export function normalizeIndex(index, length) {
   return (index + length) % length;
 }

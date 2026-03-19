@@ -18,12 +18,7 @@ init();
 async function init() {
   try {
     const urlParams = new URLSearchParams(window.location.search);
-    const response = await fetch(dataUrl);
-    if (!response.ok) {
-      throw new Error(`No se pudo cargar ${dataUrl}: ${response.status}`);
-    }
-
-    const gallery = await response.json();
+    const gallery = await loadGalleryData();
 
     hydrateGalleryIndex(state, gallery);
 
@@ -42,17 +37,51 @@ async function init() {
     bindControls(book, lightbox);
   } catch (error) {
     elements.bookError.hidden = false;
-    elements.bookCover.disabled = true;
-    elements.bookCover.setAttribute("aria-disabled", "true");
+    elements.bookCoverFront?.setAttribute("aria-disabled", "true");
+    elements.bookCoverBack?.setAttribute("aria-disabled", "true");
+    if (elements.bookCoverFront) {
+      elements.bookCoverFront.disabled = true;
+    }
+    if (elements.bookCoverBack) {
+      elements.bookCoverBack.disabled = true;
+    }
     console.error(error);
   }
 }
 
+async function loadGalleryData() {
+  try {
+    const response = await fetch(dataUrl);
+    if (!response.ok) {
+      throw new Error(`No se pudo cargar ${dataUrl}: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (fetchError) {
+    if (window.__MICH_GALLERY__) {
+      return window.__MICH_GALLERY__;
+    }
+
+    throw fetchError;
+  }
+}
+
 function bindControls(book, lightbox) {
-  elements.bookCover.addEventListener("click", book.openBook);
-  elements.openNextPage.addEventListener("click", () => book.goToPage(1));
-  elements.bookPrev.addEventListener("click", () => book.goToPage(state.activePageIndex - 1));
-  elements.bookNext.addEventListener("click", () => book.goToPage(state.activePageIndex + 1));
+  elements.bookCoverFront?.addEventListener("click", () => book.openBook({ side: "front", index: 0 }));
+  elements.bookCoverBack?.addEventListener("click", () =>
+    book.openBook({ side: "back", index: bookChapters.length - 1 }),
+  );
+  if (elements.openNextPage) {
+    elements.openNextPage.addEventListener("click", () => book.goToPage(1));
+  }
+
+  if (elements.bookPrev) {
+    elements.bookPrev.addEventListener("click", () => book.goToPage(state.activePageIndex - 1));
+  }
+
+  if (elements.bookNext) {
+    elements.bookNext.addEventListener("click", () => book.goToPage(state.activePageIndex + 1));
+  }
 
   lightbox.bind();
 
@@ -96,7 +125,12 @@ function bindControls(book, lightbox) {
 
 function applyPreviewState(book, urlParams) {
   if (urlParams.get("open") === "1") {
-    book.openBook();
+    book.openBook({ side: "front", index: 0 });
+  }
+
+  if (urlParams.get("back") === "1") {
+    book.closeBook("back");
+    return;
   }
 
   const pageId = urlParams.get("page");
@@ -106,12 +140,15 @@ function applyPreviewState(book, urlParams) {
 
   const targetIndex = bookChapters.findIndex((chapter) => chapter.id === pageId);
   if (targetIndex >= 0) {
-    book.openBook();
-    book.goToPage(targetIndex, { immediate: true });
+    book.openBook({ side: "front", index: targetIndex });
   }
 }
 
 function populateBookMeta(gallery) {
+  if (!elements.bookGeneratedAt) {
+    return;
+  }
+
   const generatedAt = new Date(gallery.generatedAt);
   const formatted = new Intl.DateTimeFormat("es-AR", {
     day: "2-digit",
@@ -119,5 +156,5 @@ function populateBookMeta(gallery) {
     year: "numeric",
   }).format(generatedAt);
 
-  elements.bookGeneratedAt.textContent = `Compilado el ${formatted}`;
+  elements.bookGeneratedAt.textContent = `Reunido el ${formatted}`;
 }

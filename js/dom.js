@@ -1,7 +1,9 @@
 export const elements = {
   bookError: document.querySelector("#book-error"),
-  bookCover: document.querySelector("#book-cover"),
+  bookCoverFront: document.querySelector("#book-cover-front"),
+  bookCoverBack: document.querySelector("#book-cover-back"),
   bookShell: document.querySelector("#book-shell"),
+  bookGeneratedAt: document.querySelector("#book-generated-at"),
   bookPageTitle: document.querySelector("#book-page-title"),
   bookPageIndex: document.querySelector("#book-page-index"),
   bookPageSummary: document.querySelector("#book-page-summary"),
@@ -16,7 +18,6 @@ export const elements = {
   albumsGrid: document.querySelector("#albums-grid"),
   tocPreview: document.querySelector("#toc-preview"),
   archiveStats: document.querySelector("#archive-stats"),
-  bookGeneratedAt: document.querySelector("#book-generated-at"),
   lightbox: document.querySelector("#lightbox"),
   lightboxImage: document.querySelector("#lightbox-image"),
   lightboxMeta: document.querySelector("#lightbox-meta"),

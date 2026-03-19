@@ -18,21 +18,43 @@ export function createBookController({ elements, state, chapters }) {
       elements.bookTabs.appendChild(button);
     });
 
+    setClosedState("front");
     setActivePage(0);
   }
 
-  function openBook() {
-    if (state.bookOpened) {
-      return;
-    }
+  function setClosedState(side) {
+    state.bookOpened = false;
+    state.bookSide = side;
+    document.body.classList.remove("book-open");
+    document.body.dataset.bookState = side === "back" ? "back-cover" : "front-cover";
+    elements.bookShell.setAttribute("aria-hidden", "true");
+    elements.bookCoverFront?.setAttribute("aria-expanded", side === "front" ? "false" : "true");
+    elements.bookCoverBack?.setAttribute("aria-expanded", side === "back" ? "false" : "true");
+  }
 
+  function openBook({ side = "front", index } = {}) {
     state.bookOpened = true;
+    state.bookSide = side;
     document.body.classList.add("book-open");
-    elements.bookCover.setAttribute("aria-expanded", "true");
+    document.body.dataset.bookState = "open";
     elements.bookShell.setAttribute("aria-hidden", "false");
+
+    const targetIndex =
+      typeof index === "number"
+        ? index
+        : side === "back"
+          ? chapters.length - 1
+          : Math.max(0, state.activePageIndex);
+
+    setActivePage(targetIndex);
+
     window.requestAnimationFrame(() => {
       elements.bookShell.focus();
     });
+  }
+
+  function closeBook(side = "front") {
+    setClosedState(side);
   }
 
   function setActivePage(index) {
@@ -42,8 +64,11 @@ export function createBookController({ elements, state, chapters }) {
     elements.bookPageTitle.textContent = active.label;
     elements.bookPageIndex.textContent = String(state.activePageIndex + 1).padStart(2, "0");
     elements.bookPageSummary.textContent = active.summary;
-    elements.bookPrev.disabled = state.activePageIndex === 0;
-    elements.bookNext.disabled = state.activePageIndex === chapters.length - 1;
+    elements.bookPrev.disabled = false;
+    elements.bookNext.disabled = false;
+    elements.bookPrev.textContent = state.activePageIndex === 0 ? "Cerrar" : "Anterior";
+    elements.bookNext.textContent =
+      state.activePageIndex === chapters.length - 1 ? "Cerrar" : "Siguiente";
     document.body.dataset.bookTone = active.tone;
 
     document.querySelectorAll(".book-page").forEach((page) => {
@@ -57,13 +82,42 @@ export function createBookController({ elements, state, chapters }) {
   }
 
   function goToPage(index, options = {}) {
-    const boundedIndex = Math.max(0, Math.min(index, chapters.length - 1));
-    if (boundedIndex === state.activePageIndex) {
-      openBook();
+    if (index < 0) {
+      if (!state.bookOpened) {
+        return;
+      }
+
+      playTurn("prev");
+      window.clearTimeout(turnTimer);
+      turnTimer = window.setTimeout(() => {
+        closeBook("front");
+      }, 220);
       return;
     }
 
-    openBook();
+    if (index >= chapters.length) {
+      if (!state.bookOpened) {
+        return;
+      }
+
+      playTurn("next");
+      window.clearTimeout(turnTimer);
+      turnTimer = window.setTimeout(() => {
+        closeBook("back");
+      }, 220);
+      return;
+    }
+
+    const boundedIndex = Math.max(0, Math.min(index, chapters.length - 1));
+
+    if (!state.bookOpened) {
+      openBook({ side: state.bookSide, index: boundedIndex });
+      return;
+    }
+
+    if (boundedIndex === state.activePageIndex) {
+      return;
+    }
 
     if (options.immediate) {
       setActivePage(boundedIndex);
@@ -95,5 +149,5 @@ export function createBookController({ elements, state, chapters }) {
     }, 720);
   }
 
-  return { build, openBook, goToPage };
+  return { build, closeBook, goToPage, openBook };
 }
