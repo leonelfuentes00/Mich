@@ -1,4 +1,6 @@
 export const elements = {
+  bookAudio: document.querySelector("#book-audio"),
+  audioToggle: document.querySelector("#audio-toggle"),
   bookError: document.querySelector("#book-error"),
   bookCoverFront: document.querySelector("#book-cover-front"),
   bookCoverBack: document.querySelector("#book-cover-back"),

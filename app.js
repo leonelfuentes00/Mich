@@ -39,6 +39,7 @@ async function init() {
     });
     book.build();
     applyPreviewState(book, urlParams);
+    bindAudioControls();
     bindControls(book, lightbox);
   } catch (error) {
     elements.bookError.hidden = false;
@@ -69,6 +70,71 @@ async function loadGalleryData() {
 
     throw fetchError;
   }
+}
+
+function bindAudioControls() {
+  const audio = elements.bookAudio;
+  const toggle = elements.audioToggle;
+  const storageKey = "mich-audio-enabled";
+
+  if (!audio || !toggle) {
+    return;
+  }
+
+  audio.volume = 0.38;
+
+  function syncAudioLabel(isPlaying) {
+    toggle.textContent = isPlaying ? "Musica: On" : "Musica: Off";
+    toggle.setAttribute("aria-pressed", isPlaying ? "true" : "false");
+  }
+
+  syncAudioLabel(false);
+
+  function persistAudioState(isPlaying) {
+    window.localStorage.setItem(storageKey, isPlaying ? "true" : "false");
+  }
+
+  async function tryPlayAudio() {
+    try {
+      await audio.play();
+      syncAudioLabel(true);
+      persistAudioState(true);
+    } catch (error) {
+      syncAudioLabel(false);
+      persistAudioState(false);
+      console.error(error);
+    }
+  }
+
+  if (window.localStorage.getItem(storageKey) === "true") {
+    tryPlayAudio();
+  }
+
+  toggle.addEventListener("click", async () => {
+    if (audio.paused) {
+      await tryPlayAudio();
+      return;
+    }
+
+    audio.pause();
+    syncAudioLabel(false);
+    persistAudioState(false);
+  });
+
+  audio.addEventListener("ended", () => {
+    syncAudioLabel(false);
+    persistAudioState(false);
+  });
+
+  audio.addEventListener("pause", () => {
+    syncAudioLabel(false);
+    persistAudioState(false);
+  });
+
+  audio.addEventListener("play", () => {
+    syncAudioLabel(true);
+    persistAudioState(true);
+  });
 }
 
 function bindControls(book, lightbox) {

@@ -30,6 +30,14 @@ powershell -ExecutionPolicy Bypass -File .\scripts\serve-gallery.ps1
 
 Luego abre `http://localhost:4173`.
 
+## Musica de fondo
+
+El libro ya tiene soporte para un boton de musica fuera del libro. Para usarlo, coloca tu archivo en:
+
+`assets/audio/howls-moving-castle.mp3`
+
+Luego usa el boton `Musica: Off / Musica: On` para iniciar o pausar la reproduccion.
+
 ## Publicar en GitHub Pages
 
 El repo ya incluye un workflow en `.github/workflows/deploy-pages.yml` para desplegar este sitio estatico con GitHub Pages.
