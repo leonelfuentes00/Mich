@@ -48,12 +48,12 @@
               </div>
 
               <p class="book-cover-copy">
-                un pequeno gesto de la luz de ciertos dias, la ternura de algunos
+                un pequeño gesto de la luz de ciertos dias, la ternura de algunos
                 gestos y la belleza callada de haberlos vivido junto a ti
               </p>
 
               <div class="book-cover-meta">
-                <span>Solo para ti, con amor y carino</span>
+                <span>Solo para ti, con amor y cariño</span>
               </div>
             </div>
 
@@ -92,118 +92,303 @@
         </button>
 
         <section class="book-shell" id="book-shell" aria-hidden="true" tabindex="-1">
-          <header class="book-header">
-            <div class="book-header-copy">
-              <span class="book-header-kicker">Libro de recuerdos</span>
-              <div class="book-header-row">
-                <strong id="book-page-title">Invocacion</strong>
-                <span id="book-page-index">01</span>
-              </div>
-              <p id="book-page-summary">
-                La primera pagina abre el tono del libro y deja entrar la luz del
-                paseo.
-              </p>
+          <header class="book-header book-header-hidden" aria-hidden="true">
+            <span class="book-header-kicker">Libro de recuerdos</span>
+            <div class="book-header-row">
+              <strong id="book-page-title">Inicio</strong>
+              <span id="book-page-index">01</span>
             </div>
-            <div class="book-header-actions">
-              <button class="button ghost compact" id="book-prev" type="button">Anterior</button>
-              <button class="button primary compact" id="book-next" type="button">Siguiente</button>
-            </div>
+            <p id="book-page-summary">
+              La primera pagina abre el tono del libro y deja entrar una luz
+              tranquila, como si la memoria se acomodara sola.
+            </p>
           </header>
 
           <div class="book-body">
+            <div class="book-floating-controls">
+              <button class="button ghost compact" id="book-prev" type="button">Anterior</button>
+              <button class="button primary compact" id="book-next" type="button">Siguiente</button>
+            </div>
             <div class="book-gutter" aria-hidden="true"></div>
             <div class="book-turn" id="book-turn" aria-hidden="true">
               <span class="book-turn-face"></span>
               <span class="book-turn-shadow"></span>
             </div>
 
-            <section class="book-page is-active" id="page-invocacion" data-page="invocacion">
+            <section class="book-page is-active" id="page-invocacion-umbral" data-page="invocacion-umbral">
               <div class="spread-grid spread-grid-cover">
                 <article class="paper-sheet paper-sheet-title">
                   <div class="sheet-head">
-                    <span class="sheet-kicker">Portadilla</span>
+                    <span class="sheet-kicker">Capitulo 1</span>
                     <span class="sheet-folio">001</span>
                   </div>
                   <div class="sheet-body">
-                    <p class="eyebrow">Invocacion</p>
+                    <p class="eyebrow">Inicio de algo bonito</p>
                     <h2>Michelle</h2>
                     <p class="page-lead">
-                      Este libro no busca explicarlo todo. Solo guardar algunas
-                      escenas queridas para volver a ellas cuando haga falta.
+                      Espero que este pequeño libro guarde unas pocas escenas queridas de nuestra historia, para volver de forma calida a lo que somos
                     </p>
                     <p class="drop-paragraph">
-                      Entre tulipanes oscuros, luz tibia, bosque y cine, estas
-                      paginas quieren sentirse tocables: menos pantalla, mas
-                      recuerdo impreso.
+                      Entre tulipanes oscuros, luz tibia, bosque y pequeñas celebraciones, estas paginas quieren sentirse tocables, con presencia y un recuerdo impreso en fuego
                     </p>
                     <div class="page-tags">
-                      <span>Abrazo</span>
-                      <span>Luz tibia</span>
-                      <span>Bosque</span>
-                      <span>Escenas guardadas</span>
+                      <span>Abracito</span>
+                      <span>Te quie-tecito</span>
+                      <span>Bonita</span>
+                      <span>Corazon</span>
+                      <span>Mich</span>
+                    </div>
+                    <div class="invocation-editorial-card invocation-editorial-card-soft">
+                      <p>Fragmento de la historia</p>
+                      <strong>
+                        En este viaje, cortito pero no menor, quiero hacerte pasar por lo que fue nuestra historia 💗
+                      </strong>
+                      <span class="invocation-divider" aria-hidden="true"></span>
+                      <span class="page-note page-note-inline">
+                        Este libro va a entrar con una voz baja, representando esas flores rojas oscuras, o moradas oscuras, que tanto te gustan, con una luz tenue que 
+                        no te sea tan pesada, y una sensación de calidez
+                      </span>
                     </div>
                     <div class="page-actions">
                     </div>
-                  </div>
-                  <footer class="sheet-foot">
-                    <div class="page-note">
-                      <p>Nota de apertura</p>
-                      <strong>Una primera hoja para entrar despacio y dejar que el tono haga su trabajo.</strong>
+                    <div class="page-note page-note-inline">
+                      <p>Notita</p>
+                      <strong>Esta entrada acomoda el pulso y deja que el libro empiece a respirar.</strong>
                     </div>
-                  </footer>
+                  </div>
                 </article>
 
                 <article class="paper-sheet paper-sheet-gallery">
                   <div class="sheet-head">
-                    <span class="sheet-kicker">Lamina de apertura</span>
+                    <span class="sheet-kicker">Un tulipancito</span>
                     <span class="sheet-folio">002</span>
                   </div>
                   <div class="sheet-body">
-                    <div class="page-visual">
-                      <div class="hero-stack" id="hero-stack" aria-label="Collage destacado"></div>
-                    </div>
-                    <div class="marginalia-card">
-                      <p>Margen</p>
-                      <strong>Las primeras imagenes abren el pulso del libro y marcan la manera de mirarlo.</strong>
-                    </div>
+                    <figure class="invocation-plate">
+                      <div class="invocation-plate-frame">
+                        <img
+                          src="./assets/references/hulme-tulip-flowers.jpg"
+                          alt="Lamina botanica de tulipanes en tonos rojizos"
+                          loading="lazy"
+                        />
+                      </div>
+                      <figcaption class="invocation-plate-caption">
+                        <p>Lamina botanica</p>
+                        <strong>Tulipanes encendidos</strong>
+                        <span>La flor no entra como decoracion: entra como tono, como una nota sostenida al borde de la pagina.</span>
+                      </figcaption>
+                    </figure>
                   </div>
                 </article>
               </div>
             </section>
 
-            <section class="book-page" id="page-latidos" data-page="latidos">
+            <section class="book-page" id="page-invocacion-galeria" data-page="invocacion-galeria">
+              <div class="spread-grid spread-grid-cover">
+                <article class="paper-sheet paper-sheet-gallery">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Fotitosss</span>
+                    <span class="sheet-folio">003</span>
+                  </div>
+                  <div class="sheet-body">
+                    <div class="page-visual">
+                      <div class="hero-stack" id="hero-stack" aria-label="Collage destacado"></div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Apertura</span>
+                    <span class="sheet-folio">004</span>
+                  </div>
+                  <div class="sheet-body prose-sheet invocation-prose-sheet">
+                    <h2>Las imagenes representan recuerdos</h2>
+                    <p class="section-lead">
+                      Cuando el libro ya se abrio, conviene dejar hablar a unas
+                      pocas imagenes y a una sola nota precisa, ya va a ir llegando todo 💗
+                    </p>
+                    <div class="marginalia-card">
+                      <p>Invitación</p>
+                      <strong>Con estas imagenes te invito a admirar este presente que hice con mucho cariño</strong>
+                    </div>
+                    <div class="marginalia-card">
+                      <p>Recuerdo</p>
+                      <strong>Me encanta todo de ti, con el tal de saber que vos del otro lado de la pantalla estás sonriendo, es más que suficiente para mí</strong>
+                    </div>
+                    <figure class="invocation-atmosphere-panel" aria-hidden="true">
+                      <img
+                        src="./assets/atmosphere/8b0c93c1b10b55ce98e6479127162a3f.jpg"
+                        alt=""
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-invocacion-laminas" data-page="invocacion-laminas">
+              <div class="spread-grid">
+                <article class="paper-sheet paper-sheet-visual">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Lamina I</span>
+                    <span class="sheet-folio">005</span>
+                  </div>
+                  <div class="sheet-body sheet-body-visual">
+                    <figure class="visual-plate">
+                      <img
+                        src="./assets/generated/beso1.png"
+                        alt="Una imagen de beso entre los dos personajes"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+
+                <article class="paper-sheet paper-sheet-visual">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Lamina II</span>
+                    <span class="sheet-folio">006</span>
+                  </div>
+                  <div class="sheet-body sheet-body-visual">
+                    <figure class="visual-plate visual-plate-soft">
+                      <img
+                        src="./assets/generated/abrazo.png"
+                        alt="Una imagen de abrazo entre los dos personajes"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-latidos-pulsos" data-page="latidos-pulsos">
               <div class="spread-grid">
                 <article class="paper-sheet">
                   <div class="sheet-head">
                     <span class="sheet-kicker">Capitulo I</span>
-                    <span class="sheet-folio">003</span>
+                    <span class="sheet-folio">007</span>
                   </div>
-                  <div class="sheet-body prose-sheet">
+                  <div class="sheet-body prose-sheet latidos-prose-sheet latidos-prose-sheet-primary">
                     <p class="eyebrow">Latidos</p>
-                    <h2>Un recorrido suave para mirar sin prisa</h2>
+                    <h2 class="">Un recorrido suave para mirar con detenimiento</h2>
                     <p class="section-lead">
-                      Pequenas estaciones para sentir el pulso del paseo, una
-                      escena despues de la otra, como si cada hoja afinara la
-                      siguiente.
+                      Pequenas estaciones para sentir el pulso de lo que vivimos, una
+                      escena despues de la otra, como si cada hoja afinara la sensación de lo que somos ahora
                     </p>
                     <p class="drop-paragraph">
-                      Las mejores paginas de un libro no gritan: acomodan el ojo,
-                      invitan a detenerse y dejan que una imagen haga eco en la
-                      otra. Esta parte busca exactamente eso.
+                      Por aqui te voy a dejar, en capitulos, lo que fueron nuestros dias, cada capitulo representa un dia, ya que, vivimos esos dias de forma fugaz 
                     </p>
                     <blockquote class="pull-quote">
-                      "Cambiar de pagina deberia sentirse como cambiar de luz."
+                      "Pasar de pagina debe sentirse como un respiro y un alivio al corazon"
                     </blockquote>
+                    <div class="page-note page-note-inline">
+                      <p>Ritmo</p>
+                      <strong>Con los ritmos de la musica, el corazón se calma, y los sentimientos fluyen, te quiero mucho</strong>
+                    </div>
                   </div>
                 </article>
 
                 <article class="paper-sheet">
                   <div class="sheet-head">
                     <span class="sheet-kicker">Secuencia</span>
-                    <span class="sheet-folio">004</span>
+                    <span class="sheet-folio">008</span>
                   </div>
-                  <div class="sheet-body">
+                  <div class="sheet-body latidos-sequence-sheet">
                     <div class="story-strip" id="story-strip"></div>
+                    <figure class="latidos-atmosphere-panel" aria-hidden="true">
+                      <img
+                        src="./assets/atmosphere/descarga.jpg"
+                        alt=""
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-latidos-deriva" data-page="latidos-deriva">
+              <div class="spread-grid">
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Deriva</span>
+                    <span class="sheet-folio">009</span>
+                  </div>
+                  <div class="sheet-body prose-sheet latidos-prose-sheet latidos-prose-sheet-secondary">
+                    <p class="eyebrow">Latidos del corazon</p>
+                    <h2>La conexión de nuestros corazones</h2>
+                    <p class="section-lead">
+                      De a poco, nuestras respiraciones hacen que cada
+                      parada tenga lugar propio y que el ritmo no se vuelva pesado, buscando la calma, la paz
+                    </p>
+                    <div class="editorial-fragment editorial-fragment-latidos-soft">
+                      <p>Continuidad</p>
+                      <strong>Parece que seguimos con lo mismo, pero soltamos un poco mas, los capitulos continuan, la historia sigue</strong>
+                      <span>Lo que cambia no es el amor, sino la forma tranquila en que empieza a acomodarse dentro de nosotros.</span>
+                    </div>
+                    <blockquote class="pull-quote">
+                      "Todo se da a su tiempo, de forma natural y tranquila"
+                    </blockquote>
+                    <div class="page-note page-note-inline">
+                      <p>Cadencia</p>
+                      <strong>Cuando el libro baja un poco la velocidad, las imagenes empiezan a conversar entre si, la armonía fluye</strong>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Secuencia II</span>
+                    <span class="sheet-folio">010</span>
+                  </div>
+                  <div class="sheet-body latidos-sequence-sheet">
+                    <div class="story-strip" id="story-strip-secondary"></div>
+                    <figure class="latidos-atmosphere-panel latidos-atmosphere-panel-soft" aria-hidden="true">
+                      <img
+                        src="./assets/atmosphere/9ca87b97ba1488d8976979cc383d5994.jpg"
+                        alt=""
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-latidos-laminas" data-page="latidos-laminas">
+              <div class="spread-grid">
+                <article class="paper-sheet paper-sheet-visual">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Lamina III</span>
+                    <span class="sheet-folio">011</span>
+                  </div>
+                  <div class="sheet-body sheet-body-visual">
+                    <figure class="visual-plate">
+                      <img
+                        src="./assets/generated/abrazo2.png"
+                        alt="Una imagen de abrazo calido entre los dos personajes"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+
+                <article class="paper-sheet paper-sheet-visual">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Lamina IV</span>
+                    <span class="sheet-folio">012</span>
+                  </div>
+                  <div class="sheet-body sheet-body-visual">
+                    <figure class="visual-plate visual-plate-soft">
+                      <img
+                        src="./assets/generated/beso3.png"
+                        alt="Una imagen romantica de los dos personajes besandose"
+                        loading="lazy"
+                      />
+                    </figure>
                   </div>
                 </article>
               </div>
@@ -213,8 +398,8 @@
               <div class="spread-grid spread-grid-atmosphere">
                 <article class="paper-sheet paper-sheet-art">
                   <div class="sheet-head">
-                    <span class="sheet-kicker">Interludio</span>
-                    <span class="sheet-folio">005</span>
+                    <span class="sheet-kicker">Descansito</span>
+                    <span class="sheet-folio">013</span>
                   </div>
                   <div class="sheet-body">
                     <figure class="chapter-art">
@@ -231,57 +416,58 @@
                         <source src="./assets/atmosphere/forest-sunlight.mp4" type="video/mp4" />
                       </video>
                     </figure>
+                    <p class="figure-caption figure-caption-inline">Bosque en calma. Una pausa para que la memoria baje la voz y respire.</p>
                   </div>
-                  <footer class="sheet-foot">
-                    <p class="figure-caption">Bosque en calma. Una pausa para que la memoria baje la voz y respire.</p>
-                  </footer>
                 </article>
 
                 <article class="paper-sheet">
                   <div class="sheet-head">
                     <span class="sheet-kicker">Herbario</span>
-                    <span class="sheet-folio">006</span>
+                    <span class="sheet-folio">014</span>
                   </div>
-                  <div class="sheet-body prose-sheet">
-                    <p class="eyebrow">Herbario</p>
-                    <h2>Un interludio de bosque y tulipanes</h2>
+                  <div class="sheet-body prose-sheet herbario-prose-sheet">
+                    <h2>Un descanso en el bosque</h2>
                     <p class="section-lead">
-                      Esta hoja funciona como un respiro entre capitulos: una
-                      pausa tibia, un poco editorial, para que el libro se sienta
-                      unido y no solo dividido en bloques.
+                      Vamos a respirar un poco luego de la montaña de emociones, con una
+                      pausa tibia y botanica para que el libro se sienta unido,
+                      continuo, respirando de forma profunda
                     </p>
                     <div class="page-tags">
-                      <span>Claros de bosque</span>
-                      <span>Rojo profundo</span>
+                      <span>Un poquito de verde que te gusta</span>
+                      <span>Paz y tranquilidad</span>
                       <span>Calma</span>
-                      <span>Luz suave</span>
+                      <span>Un lugar donde ir juntos</span>
                     </div>
                     <div class="page-note page-note-wide">
-                      <p>Nota al margen</p>
                       <strong>
-                        Una buena doble pagina cambia el aire de la lectura sin
-                        romper su continuidad.
+                        Cambiemos el clima, para respirar y que la historia siga siendo fugaz y hermosa
                       </strong>
+                      <span>Esta pagina es una pequeña pausa, para dejar al cerebro procesar, al corazón latir, y a los sentimientos fluir</span>
                     </div>
+                    <figure class="herbario-atmosphere-panel herbario-atmosphere-panel-tulip" aria-hidden="true">
+                      <img
+                        src="./assets/atmosphere/queen-of-night-cc0.jpg"
+                        alt=""
+                        loading="lazy"
+                      />
+                    </figure>
                   </div>
                 </article>
               </div>
             </section>
 
-            <section class="book-page" id="page-constelacion" data-page="constelacion">
+            <section class="book-page" id="page-constelacion-indice" data-page="constelacion-indice">
               <div class="spread-grid">
                 <article class="paper-sheet">
                   <div class="sheet-head">
                     <span class="sheet-kicker">Indice</span>
-                    <span class="sheet-folio">007</span>
+                    <span class="sheet-folio">015</span>
                   </div>
-                  <div class="sheet-body prose-sheet">
-                    <p class="eyebrow">Constelacion</p>
-                    <h2>La historia organizada por capitulos</h2>
+                  <div class="sheet-body prose-sheet constelacion-prose-sheet constelacion-prose-sheet-index">
+                    <h2>Nuestra historia guardada por capitulos</h2>
                     <p class="section-lead">
-                      Aqui el libro se vuelve consultable: cada bloque queda
-                      alineado como si fuera un indice vivo, listo para volver a
-                      una escena concreta sin perder el tono.
+                      Aqui los recuerdos empiezan a ordenarse con suavidad,
+                      como cuando una vuelve a revisar la galería y ver como pasa el tiempo
                     </p>
                     <div class="toc-preview" id="toc-preview"></div>
                   </div>
@@ -289,46 +475,274 @@
 
                 <article class="paper-sheet">
                   <div class="sheet-head">
-                    <span class="sheet-kicker">Capitulos</span>
-                    <span class="sheet-folio">008</span>
+                    <span class="sheet-kicker">Orientacion</span>
+                    <span class="sheet-folio">016</span>
                   </div>
-                  <div class="sheet-body">
-                    <div class="albums-grid" id="albums-grid"></div>
+                  <div class="sheet-body prose-sheet constelacion-prose-sheet">
+                    <h2>Tu mirada, es lo que anhelo en cada mañana</h2>
+                    <p class="section-lead">
+                      Antes de seguir pasando hojas, recapitulemos, por cuanto pasamos?
+                      Te adoro, me diste vuelta la vida
+                    </p>
+                    <figure class="constelacion-atmosphere-panel" aria-hidden="true">
+                      <img
+                        src="./assets/atmosphere/moonlit-forest-le-roux.jpg"
+                        alt=""
+                        loading="lazy"
+                      />
+                    </figure>
                   </div>
                 </article>
               </div>
             </section>
 
-            <section class="book-page" id="page-archivo" data-page="archivo">
-              <div class="spread-grid spread-grid-archive">
+            <section class="book-page" id="page-constelacion-catalogo" data-page="constelacion-catalogo">
+              <div class="spread-grid">
                 <article class="paper-sheet">
                   <div class="sheet-head">
-                    <span class="sheet-kicker">Archivo</span>
-                    <span class="sheet-folio">009</span>
+                    <span class="sheet-kicker">Capitulos</span>
+                    <span class="sheet-folio">017</span>
                   </div>
-                  <div class="sheet-body prose-sheet">
-                    <p class="eyebrow">Archivo</p>
-                    <h2>Una hoja final para hojearlo entero</h2>
-                    <p class="section-lead">
-                      La ultima parte deja de narrar y empieza a catalogar. El
-                      libro se abre por completo para que cada recuerdo pueda
-                      localizarse de un vistazo.
-                    </p>
-                    <div class="archive-stats" id="archive-stats"></div>
-                    <div class="page-note">
-                      <p>Colofon</p>
-                      <strong>Hecho con imagenes reales, papel imaginado y la idea sencilla de que recordar tambien es una forma de cuidar.</strong>
+                  <div class="sheet-body">
+                    <div class="albums-grid" id="albums-grid"></div>
+                  </div>
+                </article>
+
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Capitulos II</span>
+                    <span class="sheet-folio">018</span>
+                  </div>
+                  <div class="sheet-body">
+                    <div class="albums-grid" id="albums-grid-secondary"></div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-constelacion-catalogo-final" data-page="constelacion-catalogo-final">
+              <div class="spread-grid">
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Capitulos III</span>
+                    <span class="sheet-folio">019</span>
+                  </div>
+                  <div class="sheet-body catalog-sheet">
+                    <div class="albums-grid" id="albums-grid-tertiary"></div>
+                    <div class="page-note page-note-inline">
+                      <p>Cierre de indice</p>
+                      <strong>Separar los capitulos en hojas distintas deja que cada pedacito de nosotros tenga su propio aire y su propia luz.</strong>
                     </div>
                   </div>
                 </article>
 
                 <article class="paper-sheet">
                   <div class="sheet-head">
-                    <span class="sheet-kicker">Plancha de contacto</span>
-                    <span class="sheet-folio">010</span>
+                    <span class="sheet-kicker">Umbral</span>
+                    <span class="sheet-folio">020</span>
+                  </div>
+                  <div class="sheet-body prose-sheet constelacion-prose-sheet">
+                    <p class="eyebrow">Constelacion</p>
+                    <h2>Todo queda listo para volver a sentirlo</h2>
+                    <p class="section-lead">
+                      Cuando todos los capitulos conectan, el libro deja de parecer
+                      un archivo y vuelve a sentirse como lo que es, una forma de acercarme a ti en la vida 
+                    </p>
+                    <figure class="constelacion-atmosphere-panel" aria-hidden="true">
+                      <img
+                        src="./assets/atmosphere/7682a2647b0d0b81794676191f097b30.jpg"
+                        alt=""
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-constelacion-laminas" data-page="constelacion-laminas">
+              <div class="spread-grid">
+                <article class="paper-sheet paper-sheet-visual">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Lamina V</span>
+                    <span class="sheet-folio">021</span>
+                  </div>
+                  <div class="sheet-body sheet-body-visual">
+                    <figure class="visual-plate">
+                      <img
+                        src="./assets/generated/abrazo4.png"
+                        alt="Una imagen delicada de los dos personajes abrazandose"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+
+                <article class="paper-sheet paper-sheet-visual">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Lamina VI</span>
+                    <span class="sheet-folio">022</span>
+                  </div>
+                  <div class="sheet-body sheet-body-visual">
+                    <figure class="visual-plate visual-plate-soft">
+                      <img
+                        src="./assets/generated/abrazo3.png"
+                        alt="Una imagen romantica de abrazo entre los dos personajes"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-constelacion-diptico" data-page="constelacion-diptico">
+              <div class="spread-grid">
+                <article class="paper-sheet paper-sheet-visual">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Diptico I</span>
+                    <span class="sheet-folio">023</span>
+                  </div>
+                  <div class="sheet-body sheet-body-visual">
+                    <figure class="visual-plate visual-plate-diptych visual-plate-diptych-left">
+                      <img
+                        src="./assets/generated/boa1.jpg"
+                        alt="Boa en la mitad izquierda de un diptico conectado"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+
+                <article class="paper-sheet paper-sheet-visual">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Diptico II</span>
+                    <span class="sheet-folio">024</span>
+                  </div>
+                  <div class="sheet-body sheet-body-visual">
+                    <figure class="visual-plate visual-plate-diptych visual-plate-diptych-right">
+                      <img
+                        src="./assets/generated/luffy2.jpg"
+                        alt="Luffy en la mitad derecha de un diptico conectado"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-archivo-colofon" data-page="archivo-colofon">
+              <div class="spread-grid spread-grid-archive">
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Archivo</span>
+                    <span class="sheet-folio">025</span>
+                  </div>
+                  <div class="sheet-body prose-sheet archivo-prose-sheet archivo-prose-sheet-colofon archivo-prose-sheet-compact">
+                    <h2>Una hoja final para mirarte entera</h2>
+                    <p class="section-lead">
+                      En esta parte ya no hace falta contar nada de corrido.
+                      Basta con reunir las escenas queridas y dejarlas cerca,
+                      como si pudieran volver a tocarse entre si.
+                    </p>
+                    <div class="archive-stats" id="archive-stats"></div>
+                    <div class="page-note page-note-compact page-note-compact-archivo">
+                      <strong>Hice esto con mucho cariño, esfuerzo, llegamos al fin del libro, pero no al fin de nuestra historia💗💗💗 </strong>
+                      <span>Este libro, es una pequeña muestra de todo lo que te quiero, de lo especial que eres en mi vida, y lo que quiero a futuro a tu lado</span>
+                    </div>
+                    <div class="editorial-fragment editorial-fragment-archivo">
+                      <strong>Si dan ganas de quedarse un rato mas, la galeria completa queda abierta aparte, como otra habitacion de recuerdos</strong>
+                    </div>
+                    <div class="page-actions page-actions-archivo">
+                      <button class="button ghost compact" id="open-gallery-browser" type="button">
+                        Abrir galeria completa
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Capitulos que nunca acaban</span>
+                    <span class="sheet-folio">026</span>
                   </div>
                   <div class="sheet-body">
                     <div class="memory-grid" id="memory-grid"></div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-archivo-plancha" data-page="archivo-plancha">
+              <div class="spread-grid spread-grid-archive">
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Capitulos que nunca acaban</span>
+                    <span class="sheet-folio">027</span>
+                  </div>
+                  <div class="sheet-body">
+                    <div class="memory-grid" id="memory-grid-secondary"></div>
+                  </div>
+                </article>
+
+                <article class="paper-sheet">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Cierre</span>
+                    <span class="sheet-folio">028</span>
+                  </div>
+                  <div class="sheet-body prose-sheet archivo-prose-sheet archivo-prose-sheet-compact">
+                    <h2>Una ultima hoja para continuar nuestra historia</h2>
+                    <p class="section-lead">
+                      El final de esto claro que no significa un adios, esta marcando el inicio de nuestra historia, una etapa de felicidad para ambos, te deseo lo mejor, y te quiero muchisimo Mich, me gustas mucho
+                    </p>
+                    <div class="page-note page-note-wide">
+                      <p>Ultima nota</p>
+                      <strong>Quiero seguir, mientras estamos a tantos km de distancia, seguir yendo a dormir imaginándote y diciéndome mentalmente, esta persona me gusta tanto, quiero un futuro junto a ella</strong>
+                    </div>
+                    <figure class="archivo-coda-panel" aria-hidden="true">
+                      <img
+                        src="./assets/atmosphere/peter-binoit-still-life.jpg"
+                        alt=""
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="book-page" id="page-archivo-ponyo" data-page="archivo-ponyo">
+              <div class="spread-grid">
+                <article class="paper-sheet paper-sheet-visual">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Lamina VII</span>
+                    <span class="sheet-folio">029</span>
+                  </div>
+                  <div class="sheet-body sheet-body-visual">
+                    <figure class="visual-plate visual-plate-soft">
+                      <img
+                        src="./assets/generated/ponyo1.jpg"
+                        alt="Ponyo abrazando con ternura"
+                        loading="lazy"
+                      />
+                    </figure>
+                  </div>
+                </article>
+
+                <article class="paper-sheet paper-sheet-visual">
+                  <div class="sheet-head">
+                    <span class="sheet-kicker">Lamina VIII</span>
+                    <span class="sheet-folio">030</span>
+                  </div>
+                  <div class="sheet-body sheet-body-visual">
+                    <figure class="visual-plate visual-plate-soft">
+                      <img
+                        src="./assets/generated/ponyo2.jpg"
+                        alt="Ponyo y Sosuke en una escena luminosa"
+                        loading="lazy"
+                      />
+                    </figure>
                   </div>
                 </article>
               </div>
@@ -342,7 +756,7 @@
 
     <dialog class="lightbox" id="lightbox">
       <form method="dialog" class="lightbox-dismiss">
-        <button class="lightbox-close" aria-label="Cerrar visor">Cerrar</button>
+        <button class="lightbox-close" aria-label="Cerrar visor">X</button>
       </form>
       <div class="lightbox-shell">
         <button class="lightbox-nav" id="prev-shot" type="button" aria-label="Anterior">
@@ -351,13 +765,34 @@
         <figure class="lightbox-figure">
           <img id="lightbox-image" alt="" />
           <figcaption>
-            <span id="lightbox-meta"></span>
+            <div class="lightbox-caption-row">
+              <span id="lightbox-meta"></span>
+              <span id="lightbox-counter"></span>
+            </div>
             <strong id="lightbox-title"></strong>
           </figcaption>
         </figure>
         <button class="lightbox-nav" id="next-shot" type="button" aria-label="Siguiente">
           &#8250;
         </button>
+      </div>
+      <div class="lightbox-thumbs" id="lightbox-thumbs" aria-label="Miniaturas del visor"></div>
+    </dialog>
+
+    <dialog class="gallery-browser" id="gallery-browser">
+      <form method="dialog" class="gallery-browser-dismiss">
+        <button class="lightbox-close" aria-label="Cerrar galeria completa">X</button>
+      </form>
+      <div class="gallery-browser-shell">
+        <header class="gallery-browser-head">
+          <p>Archivo completo</p>
+          <h3>Galeria de nuestros recuerdos</h3>
+          <span>
+            Recorre el archivo entero con calma y abre cualquier imagen en el
+            visor para quedarte un rato mas en ella.
+          </span>
+        </header>
+        <div class="gallery-browser-content" id="gallery-browser-content"></div>
       </div>
     </dialog>
 

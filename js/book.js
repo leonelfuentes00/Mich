@@ -1,20 +1,34 @@
 export function createBookController({ elements, state, chapters }) {
   let turnTimer;
+  const units = [];
+  const firstPageByUnit = new Map();
+
+  chapters.forEach((chapter, index) => {
+    const unitId = chapter.unitId ?? chapter.id;
+    if (!firstPageByUnit.has(unitId)) {
+      firstPageByUnit.set(unitId, index);
+      units.push({
+        id: unitId,
+        label: chapter.unitLabel ?? chapter.label,
+      });
+    }
+  });
 
   function build() {
     elements.bookTabs.innerHTML = "";
 
-    chapters.forEach((chapter, index) => {
+    units.forEach((unit, index) => {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "book-tab";
       button.innerHTML = `
         <span class="book-tab-index">${String(index + 1).padStart(2, "0")}</span>
-        <strong>${chapter.label}</strong>
+        <strong>${unit.label}</strong>
       `;
-      button.setAttribute("aria-label", `Ir a ${chapter.label}`);
+      button.dataset.unit = unit.id;
+      button.setAttribute("aria-label", `Ir a ${unit.label}`);
       button.setAttribute("aria-current", "false");
-      button.addEventListener("click", () => goToPage(index));
+      button.addEventListener("click", () => goToPage(firstPageByUnit.get(unit.id) ?? 0));
       elements.bookTabs.appendChild(button);
     });
 
@@ -60,6 +74,7 @@ export function createBookController({ elements, state, chapters }) {
   function setActivePage(index) {
     state.activePageIndex = Math.max(0, Math.min(index, chapters.length - 1));
     const active = chapters[state.activePageIndex];
+    const activeUnitId = active.unitId ?? active.id;
 
     elements.bookPageTitle.textContent = active.label;
     elements.bookPageIndex.textContent = String(state.activePageIndex + 1).padStart(2, "0");
@@ -76,8 +91,9 @@ export function createBookController({ elements, state, chapters }) {
     });
 
     document.querySelectorAll(".book-tab").forEach((tab, tabIndex) => {
-      tab.classList.toggle("is-active", tabIndex === state.activePageIndex);
-      tab.setAttribute("aria-current", tabIndex === state.activePageIndex ? "page" : "false");
+      const isActive = tab.dataset.unit === activeUnitId;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-current", isActive ? "page" : "false");
     });
   }
 

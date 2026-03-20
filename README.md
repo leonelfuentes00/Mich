@@ -30,6 +30,17 @@ powershell -ExecutionPolicy Bypass -File .\scripts\serve-gallery.ps1
 
 Luego abre `http://localhost:4173`.
 
+## Publicar en GitHub Pages
+
+El repo ya incluye un workflow en `.github/workflows/deploy-pages.yml` para desplegar este sitio estatico con GitHub Pages.
+
+Pasos:
+
+1. Sube los cambios a `main`.
+2. En GitHub, entra a `Settings > Pages`.
+3. En `Build and deployment`, deja `Source: GitHub Actions`.
+4. Espera a que termine el workflow `Deploy To GitHub Pages`.
+
 ## Estructura
 
 - `index.html`: shell principal.

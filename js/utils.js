@@ -18,37 +18,59 @@ export function sampleAcrossAlbums(albums, amount) {
 
 export function heroShotTransform(index) {
   const transforms = [
-    "translate(-50%, -50%) rotate(-10deg) translate(-44px, 24px)",
-    "translate(-50%, -50%) rotate(-5deg) translate(-18px, -12px)",
+    "translate(-50%, -50%) rotate(-12deg) translate(-78px, 18px)",
+    "translate(-50%, -50%) rotate(-6deg) translate(-38px, 8px)",
     "translate(-50%, -50%) rotate(0deg) translate(0px, 0px)",
-    "translate(-50%, -50%) rotate(6deg) translate(22px, 10px)",
-    "translate(-50%, -50%) rotate(12deg) translate(48px, 26px)",
+    "translate(-50%, -50%) rotate(7deg) translate(38px, 8px)",
+    "translate(-50%, -50%) rotate(13deg) translate(78px, 18px)",
   ];
 
   return transforms[index] || transforms[2];
 }
 
+export function isGenericAlbumLabel(label) {
+  return /^capitulo\s*\d+$/i.test((label || "").trim());
+}
+
 export function chapterName(index, fallback) {
   const names = [
-    "Tulipan de Medianoche",
-    "Rojo Carmesi",
-    "Petalos en Sombra",
-    "Luz sobre Vino",
-    "Negro Satin",
-    "Calor de Invierno",
-    "Velo Escarlata",
-    "Jardin Nocturno",
+    "Patinaje en el hielo",
+    "Experiencias en la aurora",
+    "Relajación en la naturaleza",
+    "Squid game :o",
+    "San Valentin 💗",
+    "Nieve, resonancia, y paz",
+    "Bajo la Luna",
+    "Fuegos artificiales en la playa",
+    "Dia de relajacion",
+    "One piece 👒",
+    "My little Pony",
+    "La pareja fugaz de hielo",
+    "Velma y Sherlock",
+    "David y goliath, de forma tierna"
   ];
 
   return names[index % names.length] || fallback;
 }
 
+export function resolveChapterLabel(album, index) {
+  if (album?.label && !isGenericAlbumLabel(album.label)) {
+    return album.label;
+  }
+
+  return chapterName(index, album?.label || `Capitulo ${String(index + 1).padStart(2, "0")}`);
+}
+
+export function dayLabel(index) {
+  return `Dia ${String(index + 1).padStart(2, "0")}`;
+}
+
 export function tulipTone(index) {
   const tones = [
-    "Tulipan oscuro",
-    "Rojo profundo",
-    "Brillo carmesi",
-    "Petalo nocturno",
+    "Tulipan rojo",
+    "Profundo corazon",
+    "Luna querida",
+    "Sol radiante",
   ];
 
   return tones[index % tones.length];
@@ -61,11 +83,11 @@ export function plateTitle(chapterLabel, photoNumber) {
 export function storyWhisper(index) {
   const lines = [
     "Una escena breve para entrar en tono sin forzar la emocion.",
-    "Una imagen que deja la siguiente preparada, como una respiracion.",
-    "Una pausa luminosa para que el recuerdo tenga espacio.",
-    "Una pequena estacion donde mirar un poco mas despacio.",
-    "Una lamina para sostener el ritmo suave del recorrido.",
-    "Un gesto quieto, guardado para volver cuando haga falta.",
+    "Una imagen que prepara la siguiente, como una respiracion suave.",
+    "Una pausa luminosa para que el recuerdo encuentre su sitio.",
+    "Una pequena estacion donde mirar con mas calma que prisa.",
+    "Una lamina hecha para sostener el ritmo sereno del recorrido.",
+    "Un gesto quieto, guardado para volver a el cuando haga falta.",
   ];
 
   return lines[index % lines.length];

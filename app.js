@@ -5,6 +5,7 @@ import { createLightboxController } from "./js/lightbox.js";
 import {
   buildAlbums,
   buildArchiveStats,
+  buildGalleryBrowser,
   buildHeroStack,
   buildMemoryWall,
   buildStoryStrip,
@@ -32,6 +33,10 @@ async function init() {
     buildAlbums(elements, gallery, lightbox.openLightboxById);
     buildArchiveStats(elements, gallery);
     buildMemoryWall(elements, state, lightbox.open);
+    buildGalleryBrowser(elements, gallery, (imageId) => {
+      elements.galleryBrowser?.close();
+      lightbox.openLightboxById(imageId);
+    });
     book.build();
     applyPreviewState(book, urlParams);
     bindControls(book, lightbox);
@@ -74,7 +79,6 @@ function bindControls(book, lightbox) {
   if (elements.openNextPage) {
     elements.openNextPage.addEventListener("click", () => book.goToPage(1));
   }
-
   if (elements.bookPrev) {
     elements.bookPrev.addEventListener("click", () => book.goToPage(state.activePageIndex - 1));
   }
@@ -82,6 +86,27 @@ function bindControls(book, lightbox) {
   if (elements.bookNext) {
     elements.bookNext.addEventListener("click", () => book.goToPage(state.activePageIndex + 1));
   }
+
+  elements.openGalleryBrowser?.addEventListener("click", () => {
+    elements.galleryBrowser?.showModal();
+  });
+
+  elements.galleryBrowser?.addEventListener("click", (event) => {
+    const rect = elements.galleryBrowser.getBoundingClientRect();
+    const inside =
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom;
+
+    if (!inside) {
+      elements.galleryBrowser.close();
+    }
+  });
+
+  elements.galleryBrowser?.addEventListener("cancel", () => {
+    elements.galleryBrowser.close();
+  });
 
   lightbox.bind();
 
@@ -92,7 +117,7 @@ function bindControls(book, lightbox) {
       return;
     }
 
-    if (state.bookOpened && !elements.lightbox.open) {
+    if (state.bookOpened && !elements.lightbox.open && !elements.galleryBrowser?.open) {
       if (event.key === "ArrowRight") {
         book.goToPage(state.activePageIndex + 1);
         return;
@@ -104,12 +129,22 @@ function bindControls(book, lightbox) {
       }
     }
 
-    if (!elements.lightbox.open) {
+    if (!elements.lightbox.open && !elements.galleryBrowser?.open) {
       return;
     }
 
     if (event.key === "Escape") {
-      elements.lightbox.close();
+      if (elements.lightbox.open) {
+        elements.lightbox.close();
+      }
+
+      if (elements.galleryBrowser?.open) {
+        elements.galleryBrowser.close();
+      }
+      return;
+    }
+
+    if (elements.galleryBrowser?.open) {
       return;
     }
 
@@ -121,6 +156,21 @@ function bindControls(book, lightbox) {
       lightbox.step(1);
     }
   });
+}
+
+function populateBookMeta(gallery) {
+  if (!elements.bookGeneratedAt) {
+    return;
+  }
+
+  const generatedAt = new Date(gallery.generatedAt);
+  const formatted = new Intl.DateTimeFormat("es-AR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(generatedAt);
+
+  elements.bookGeneratedAt.textContent = `Reunido el ${formatted}`;
 }
 
 function applyPreviewState(book, urlParams) {
@@ -142,19 +192,4 @@ function applyPreviewState(book, urlParams) {
   if (targetIndex >= 0) {
     book.openBook({ side: "front", index: targetIndex });
   }
-}
-
-function populateBookMeta(gallery) {
-  if (!elements.bookGeneratedAt) {
-    return;
-  }
-
-  const generatedAt = new Date(gallery.generatedAt);
-  const formatted = new Intl.DateTimeFormat("es-AR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  }).format(generatedAt);
-
-  elements.bookGeneratedAt.textContent = `Reunido el ${formatted}`;
 }
